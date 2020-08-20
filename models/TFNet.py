@@ -2,8 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
-from googlenet import googlenet
-from utils import batch_ids2words
 import cv2
 
 
