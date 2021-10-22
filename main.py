@@ -80,6 +80,8 @@ def main():
                      args.n_select_bands, 
                      args.n_bands).cuda()
 
+    # Loss and optimizer
+    criterion = nn.MSELoss().cuda()
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
 
     # Load the trained model parameters
@@ -95,10 +97,6 @@ def main():
                                 args.n_epochs)
         print ('psnr: ', recent_psnr)
 
-    # Loss and Optimizer
-    criterion = nn.MSELoss().cuda()
-
-
     best_psnr = 0
     best_psnr = validate(test_list,
                           args.arch, 
@@ -110,7 +108,7 @@ def main():
     # Epochs
     print ('Start Training: ')
     for epoch in range(args.n_epochs):
-        # One epoch's traininginceptionv3
+        # One epoch's training
         print ('Train_Epoch_{}: '.format(epoch))
         train(train_list, 
               args.image_size,
