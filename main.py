@@ -18,7 +18,7 @@ from torch.nn import functional as F
 
 
 args = args_parser.args_parser()
-os.environ["CUDA_VISIBLE_DEVICES"] = "3"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 print (args)
 
